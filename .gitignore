@@ -1,3 +1,21 @@
-secret.txt
+# Python
+__pycache__/
+*.py[cod]
 
+# Virtual Environment
 .venv/
+
+# SQLite database
+db.sqlite3
+
+# VSCode settings
+.vscode/
+
+# Django migration cache
+api/migrations/__pycache__/
+*.cpython-*.pyc
+
+# Log files
+*.log
+
+secret.txt
