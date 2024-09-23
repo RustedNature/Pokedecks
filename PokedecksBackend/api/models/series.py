@@ -4,7 +4,7 @@ from django.db import models
 class Series(models.Model):
     id = models.CharField(max_length=50, primary_key=True)
     name = models.CharField(max_length=255)
-    logo = models.FilePathField(null=True)
+    logo = models.URLField(null=True)
 
 
     def __str__(self):
