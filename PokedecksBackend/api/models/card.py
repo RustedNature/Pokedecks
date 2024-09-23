@@ -22,8 +22,8 @@ class Card(m.Model):
     flavor_text = m.CharField(max_length=255)
     national_pokedex_numbers = m.JSONField()
     legalities = m.JSONField()
-    small_image = m.ImageField(null=True)
-    large_image = m.ImageField(null=True)
+    small_image = m.FilePathField(null=True)
+    large_image = m.FilePathField(null=True)
     
     #categoty = m.CharField(max_length=255)
     
