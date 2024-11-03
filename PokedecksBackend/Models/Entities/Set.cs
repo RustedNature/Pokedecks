@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using PokedecksBackend.Models.DTOs.Set;
 
 namespace PokedecksBackend.Models.Entities;
@@ -22,15 +23,15 @@ public class Set
         dto.Cards.ForEach(card => Cards.Add(new Card(card, this)));
     }
 
-    public string Id { get; set; }
-    public string Name { get; set; }
+    [MaxLength(50)] public string Id { get; set; }
+    [MaxLength(50)] public string Name { get; set; }
     public Uri? Logo { get; set; }
     public Uri? Symbol { get; set; }
     public int CardCountPrintedTotal { get; set; } //number of cards in the set excluding secret rares
     public int CardCountTotal { get; set; } //number of cards in the set including secret rares
 
     //SeriesRelationship
-    public string SeriesId { get; set; }
+    [MaxLength(50)] public string SeriesId { get; set; }
     [JsonIgnore] public Series? Series { get; set; }
 
     //CardsRelationship

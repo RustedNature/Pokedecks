@@ -1,4 +1,5 @@
-﻿using PokedecksBackend.Models.DTOs.Series;
+﻿using System.ComponentModel.DataAnnotations;
+using PokedecksBackend.Models.DTOs.Series;
 
 namespace PokedecksBackend.Models.Entities;
 
@@ -15,7 +16,7 @@ public class Series
         dto.Sets.ForEach(set => Sets.Add(new Set(set, this)));
     }
 
-    public string Id { get; set; }
+    [MaxLength(50)] public string Id { get; set; }
     public Uri? LogoNetworkUri { get; set; }
     public List<Set> Sets { get; set; } = new();
 }

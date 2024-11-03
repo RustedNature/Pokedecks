@@ -20,7 +20,6 @@ public class Card
         Set = set;
     }
 
-    //todo bei others
     [MaxLength(50)] public string Id { get; set; }
     [MaxLength(50)] public string Name { get; set; }
 
