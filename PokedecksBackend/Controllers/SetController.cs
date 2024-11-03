@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PokedecksBackend.Data;
 
 namespace PokedecksBackend.Controllers;
@@ -10,10 +11,10 @@ public class SetController(DataContext context) : ControllerBase
     private readonly DataContext _context = context;
 
     [HttpGet]
-    public IActionResult GetSets()
+    public async Task<IActionResult> GetSets()
     {
         if (!ModelState.IsValid) return BadRequest();
-        var sets = _context.Sets.ToList();
+        var sets = await _context.Sets.ToListAsync();
 
         return Ok(sets);
     }

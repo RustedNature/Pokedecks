@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PokedecksBackend.Data;
 
 namespace PokedecksBackend.Controllers;
@@ -8,9 +9,9 @@ namespace PokedecksBackend.Controllers;
 public class CardController(DataContext context) : ControllerBase
 {
     [HttpGet]
-    public IActionResult GetCards()
+    public async Task<IActionResult> GetCards()
     {
-        var cards = context.Cards.ToList();
+        var cards = await context.Cards.ToListAsync();
         return Ok(cards);
     }
 }
